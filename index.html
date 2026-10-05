@@ -3,777 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AquaGuard - Premium Water Purification Solutions</title>
-    <style>
-        :root {
-            --primary: #1E5BA8;
-            --primary-dark: #0F3A5F;
-            --accent: #06B6D4;
-            --bg: #F8F9FA;
-            --card-bg: #FFFFFF;
-            --text: #1F2937;
-            --text-light: #6B7280;
-            --border: #E5E7EB;
-            --success: #10B981;
-            --error: #EF4444;
-            --warning: #F59E0B;
-            --shadow: 0 10px 25px rgba(0,0,0,0.05);
-            --shadow-hover: 0 15px 40px rgba(6, 182, 212, 0.15);
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+    <title>AquaGuard - Premium Water Purification</title>
+    
+    <!-- Professional Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons (Professional SVG Icons replacing emojis) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 
-        [data-theme="dark"] {
-            --primary: #3B82F6;
-            --primary-dark: #1E3A8A;
-            --accent: #22D3EE;
-            --bg: #0F172A;
-            --card-bg: #1E293B;
-            --text: #F8FAFC;
-            --text-light: #94A3B8;
-            --border: #334155;
-            --shadow: 0 10px 25px rgba(0,0,0,0.3);
-            --shadow-hover: 0 15px 40px rgba(34, 211, 238, 0.2);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            color: var(--text);
-            background: var(--bg);
-            line-height: 1.6;
-            transition: background-color 0.4s, color 0.4s;
-            overflow-x: hidden;
-        }
-
-        /* Loading Spinner */
-        .spinner {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            border: 4px solid var(--border);
-            border-top-color: var(--accent);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 20px auto;
-        }
-
-        @keyframes spin { 100% { transform: rotate(360deg); } }
-
-        /* Skeleton Loaders */
-        .skeleton {
-            background: linear-gradient(90deg, var(--border) 25%, var(--card-bg) 50%, var(--border) 75%);
-            background-size: 200% 100%;
-            animation: loading 1.5s infinite;
-            border-radius: 4px;
-            min-height: 20px;
-            margin-bottom: 8px;
-        }
-
-        @keyframes loading {
-            0% { background-position: 200% 0; }
-            100% { background-position: -200% 0; }
-        }
-
-        /* Toast Notifications */
-        .toast-container {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 9999;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        .toast {
-            background: var(--card-bg);
-            color: var(--text);
-            padding: 12px 24px;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            border-left: 4px solid var(--primary);
-            opacity: 0;
-            transform: translateY(20px);
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .toast.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .toast.success { border-left-color: var(--success); }
-        .toast.error { border-left-color: var(--error); }
-
-        /* Back to Top */
-        .back-to-top {
-            position: fixed;
-            bottom: 90px;
-            right: 20px;
-            width: 45px;
-            height: 45px;
-            background: var(--card-bg);
-            color: var(--text);
-            border: 1px solid var(--border);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: var(--shadow);
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition);
-            z-index: 999;
-        }
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-        .back-to-top:hover {
-            background: var(--accent);
-            color: white;
-            border-color: var(--accent);
-            transform: translateY(-5px);
-        }
-
-        /* Sticky Contact Bar */
-        .sticky-contact {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            display: flex;
-            gap: 10px;
-            z-index: 1000;
-            flex-direction: column;
-            animation: slideInRight 0.8s ease-out 0.5s backwards;
-        }
-
-        .contact-btn {
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            border: none;
-            cursor: pointer;
-            font-size: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            position: relative;
-            text-decoration: none;
-        }
-
-        .contact-btn:hover {
-            transform: scale(1.15) rotate(10deg);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-        }
-
-        .whatsapp-btn { background: #25D366; color: white; }
-        .call-btn { background: var(--primary); color: white; }
-
-        /* Header & Navigation */
-        header {
-            background: var(--card-bg);
-            border-bottom: 1px solid var(--border);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            transition: background-color 0.4s, border-color 0.4s;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--primary);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: var(--transition);
-        }
-        .logo:hover { transform: scale(1.02); }
-
-        .nav-controls {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-        }
-
-        nav { display: flex; gap: 1.5rem; }
-        nav button {
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 15px;
-            color: var(--text);
-            transition: var(--transition);
-            padding: 8px 0;
-            position: relative;
-            font-weight: 500;
-        }
-        nav button:hover { color: var(--accent); }
-        nav button.active { color: var(--primary); font-weight: 700; }
-        nav button.active::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: var(--primary);
-            border-radius: 2px;
-        }
-
-        .theme-toggle {
-            background: var(--bg);
-            border: 1px solid var(--border);
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            color: var(--text);
-            transition: var(--transition);
-        }
-        .theme-toggle:hover {
-            background: var(--border);
-            transform: rotate(15deg);
-        }
-
-        /* Breadcrumbs */
-        .breadcrumbs {
-            max-width: 1200px;
-            margin: 1rem auto 0;
-            padding: 0 2rem;
-            font-size: 13px;
-            color: var(--text-light);
-            display: flex;
-            gap: 8px;
-            opacity: 0.8;
-        }
-        .breadcrumbs span.active {
-            color: var(--primary);
-            font-weight: 600;
-        }
-
-        /* Main Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .page {
-            display: none;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-        .page.active {
-            display: block;
-            opacity: 1;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white;
-            padding: 4rem 2rem;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 2rem auto;
-            border-radius: 16px;
-            box-shadow: var(--shadow);
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%);
-            animation: pulse 6s infinite;
-        }
-
-        .hero-content {
-            flex: 1;
-            position: relative;
-            z-index: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .hero h1 {
-            font-size: 42px;
-            margin-bottom: 1rem;
-            font-weight: 800;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            font-size: 18px;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            max-width: 600px;
-        }
-
-        /* Buttons */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 12px 28px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 15px;
-            font-weight: 600;
-            transition: var(--transition);
-            text-decoration: none;
-            position: relative;
-            overflow: hidden;
-        }
-        .btn::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: rgba(255,255,255,0.2);
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-        .btn:active::after { opacity: 1; }
-
-        .btn-primary { background: var(--accent); color: white; }
-        .btn-primary:hover { background: #0891B2; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(6, 182, 212, 0.4); }
-
-        .btn-secondary { background: var(--card-bg); color: var(--text); border: 1px solid var(--border); }
-        .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
-
-        /* Sections */
-        section { padding: 4rem 0; border-bottom: 1px solid var(--border); }
-        section:last-child { border-bottom: none; }
-        
-        section h2 {
-            font-size: 32px;
-            margin-bottom: 0.5rem;
-            color: var(--text);
-            position: relative;
-        }
-        section > p {
-            color: var(--text-light);
-            margin-bottom: 3rem;
-            font-size: 16px;
-        }
-
-        /* Grids */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        /* Product Cards */
-        .product-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            overflow: hidden;
-            transition: var(--transition);
-            position: relative;
-            display: flex;
-            flex-direction: column;
-        }
-        .product-card:hover {
-            border-color: var(--accent);
-            box-shadow: var(--shadow-hover);
-            transform: translateY(-5px);
-        }
-
-        .badges {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-            z-index: 2;
-        }
-        .badge {
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-        .badge.discount { background: var(--error); color: white; }
-        .badge.stock { background: var(--success); color: white; }
-
-        .compare-checkbox {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            z-index: 2;
-            background: var(--card-bg);
-            padding: 5px;
-            border-radius: 4px;
-            font-size: 12px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            cursor: pointer;
-            border: 1px solid var(--border);
-        }
-
-        .product-image {
-            width: 100%;
-            height: 220px;
-            background: var(--bg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 70px;
-            transition: var(--transition);
-            position: relative;
-            cursor: pointer;
-        }
-        
-        .quick-view-overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(0,0,0,0.5);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: var(--transition);
-        }
-        .product-image:hover .quick-view-overlay { opacity: 1; }
-        .quick-view-btn {
-            background: white;
-            color: #333;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 13px;
-            pointer-events: none;
-        }
-
-        .product-info {
-            padding: 1.5rem;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        .product-type { font-size: 12px; color: var(--accent); font-weight: 700; text-transform: uppercase; }
-        .product-name { font-size: 18px; font-weight: 700; margin: 0.5rem 0; color: var(--text); }
-        .stars { font-size: 14px; color: var(--warning); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 5px;}
-        .stars span { color: var(--text-light); font-size: 12px; }
-        .product-specs { font-size: 13px; color: var(--text-light); flex: 1; }
-        
-        .product-price-wrapper { margin: 1rem 0; display: flex; align-items: baseline; gap: 10px; }
-        .product-price { font-size: 24px; font-weight: 800; color: var(--primary); }
-        .product-price-original { font-size: 14px; color: var(--text-light); text-decoration: line-through; }
-
-        .product-actions { display: flex; gap: 8px; }
-        .product-actions button {
-            flex: 1;
-            padding: 10px;
-            border-radius: 6px;
-            font-size: 13px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        .btn-buy { background: var(--primary); color: white; border: none; }
-        .btn-buy:hover { background: var(--primary-dark); }
-        .btn-visit { background: var(--bg); color: var(--text); border: 1px solid var(--border); }
-        .btn-visit:hover { border-color: var(--accent); color: var(--accent); }
-
-        /* Filters */
-        .filters-container {
-            background: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: 12px;
-            margin-bottom: 2rem;
-            border: 1px solid var(--border);
-            box-shadow: var(--shadow);
-        }
-        .filters-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-        .filters {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-        }
-        .filter-group label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            font-size: 13px;
-        }
-        .filter-group input, .filter-group select {
-            width: 100%;
-            padding: 10px 12px;
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            background: var(--bg);
-            color: var(--text);
-            transition: var(--transition);
-        }
-        .filter-group input:focus, .filter-group select:focus {
-            outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.1);
-        }
-        
-        /* Autocomplete */
-        .autocomplete-wrapper { position: relative; }
-        .autocomplete-list {
-            position: absolute;
-            top: 100%; left: 0; right: 0;
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            max-height: 200px;
-            overflow-y: auto;
-            z-index: 50;
-            box-shadow: var(--shadow);
-            display: none;
-        }
-        .autocomplete-item {
-            padding: 10px;
-            cursor: pointer;
-            border-bottom: 1px solid var(--border);
-            font-size: 14px;
-        }
-        .autocomplete-item:hover { background: var(--bg); color: var(--accent); }
-
-        .active-filters {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-top: 1rem;
-        }
-        .filter-pill {
-            background: var(--accent);
-            color: white;
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 12px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        .filter-pill button {
-            background: none; border: none; color: white; cursor: pointer; font-weight: bold;
-        }
-
-        /* Compare Floating Bar */
-        #compareBar {
-            position: fixed;
-            bottom: -100px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--primary-dark);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            transition: var(--transition);
-        }
-        #compareBar.show { bottom: 30px; }
-
-        /* Modals */
-        .modal {
-            position: fixed; inset: 0;
-            background: rgba(0,0,0,0.6);
-            z-index: 2000;
-            display: flex; align-items: center; justify-content: center;
-            opacity: 0; pointer-events: none; transition: var(--transition);
-            backdrop-filter: blur(4px);
-        }
-        .modal.active { opacity: 1; pointer-events: auto; }
-        .modal-content {
-            background: var(--card-bg);
-            border-radius: 16px;
-            width: 90%; max-width: 800px;
-            max-height: 90vh; overflow-y: auto;
-            padding: 2rem;
-            position: relative;
-            transform: scale(0.95) translateY(20px);
-            transition: var(--transition);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-        }
-        .modal.active .modal-content { transform: scale(1) translateY(0); }
-        .modal-close {
-            position: absolute; top: 1rem; right: 1rem;
-            background: var(--bg); border: none; border-radius: 50%;
-            width: 32px; height: 32px;
-            cursor: pointer; font-size: 18px; color: var(--text);
-            transition: var(--transition);
-        }
-        .modal-close:hover { background: var(--error); color: white; }
-
-        /* Comparison Table */
-        .comparison-table {
-            width: 100%; border-collapse: collapse; margin-top: 1rem;
-        }
-        .comparison-table th, .comparison-table td {
-            padding: 1rem; border: 1px solid var(--border); text-align: left;
-        }
-        .comparison-table th { background: var(--bg); font-weight: 600; }
-        
-        /* Services */
-        .service-card {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 12px;
-            border-left: 4px solid var(--primary);
-            transition: var(--transition);
-            box-shadow: var(--shadow);
-            display: flex;
-            flex-direction: column;
-        }
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
-            border-left-color: var(--accent);
-        }
-        .service-card h3 { font-size: 20px; margin-bottom: 1rem; display: flex; align-items: center; gap: 10px; }
-        .service-list { margin: 1rem 0; padding-left: 1.5rem; color: var(--text-light); font-size: 14px; flex-grow: 1; }
-        .service-list li { margin-bottom: 5px; }
-
-        /* Testimonials Carousel */
-        .carousel-container {
-            overflow: hidden;
-            width: 100%;
-            position: relative;
-            padding: 1rem 0;
-            background: var(--card-bg);
-            border-radius: 12px;
-            border: 1px solid var(--border);
-        }
-        .carousel-track {
-            display: flex;
-            gap: 2rem;
-            width: max-content;
-            animation: scroll-carousel 30s linear infinite;
-        }
-        .carousel-track:hover { animation-play-state: paused; }
-        @keyframes scroll-carousel {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-        .testimonial {
-            width: 350px;
-            background: var(--bg);
-            padding: 2rem;
-            border-radius: 12px;
-            border-left: 4px solid var(--accent);
-        }
-        .testimonial-text { font-style: italic; margin-bottom: 1rem; font-size: 15px; }
-        
-        /* Footer */
-        footer {
-            background: var(--primary-dark);
-            color: #E2E8F0;
-            padding: 4rem 2rem 1rem;
-            margin-top: 4rem;
-        }
-        .footer-content {
-            max-width: 1200px; margin: 0 auto;
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem;
-            margin-bottom: 3rem;
-        }
-        .footer-section h3 { color: white; margin-bottom: 1.5rem; font-size: 18px; }
-        .footer-section ul { list-style: none; }
-        .footer-section ul li { margin-bottom: 0.8rem; }
-        .footer-section a { color: #CBD5E1; text-decoration: none; transition: var(--transition); }
-        .footer-section a:hover { color: var(--accent); padding-left: 5px; }
-
-        /* Media Queries */
-        @media (max-width: 768px) {
-            .hero { padding: 2rem; }
-            .header-content { flex-direction: column; gap: 1rem; }
-            nav { flex-wrap: wrap; justify-content: center; }
-            .grid { grid-template-columns: 1fr; }
-            .toast-container { width: 90%; }
-        }
-    </style>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body data-theme="light">
 
     <!-- Header -->
-    <header>
+    <header id="mainHeader">
         <div class="header-content">
-            <div class="logo" onclick="navigateTo('home')">
-                💧 AquaGuard
-            </div>
+            <a href="#" class="logo" onclick="navigateTo('home'); return false;">
+                <i data-lucide="waves"></i> AquaGuard
+            </a>
             <div class="nav-controls">
                 <nav>
                     <button class="active" onclick="navigateTo('home')">Home</button>
-                    <button onclick="navigateTo('products')">Products & Prices</button>
+                    <button onclick="navigateTo('products')">Products</button>
                     <button onclick="navigateTo('services')">Services</button>
-                    <button onclick="navigateTo('services', 'contactSection')">Contact</button>
+                    <button onclick="navigateTo('contact')">Contact</button>
                 </nav>
-                <button id="themeToggle" class="theme-toggle" title="Toggle Dark Mode">🌙</button>
+                <button id="themeToggle" class="theme-toggle" title="Toggle Dark Mode">
+                    <i data-lucide="moon"></i>
+                </button>
             </div>
         </div>
     </header>
 
     <!-- Breadcrumbs -->
     <div class="breadcrumbs" id="breadcrumbs">
-        <span>Home</span>
+        <span style="cursor:pointer;" onclick="navigateTo('home')"><i data-lucide="home" style="width:16px;height:16px;margin-bottom:-3px;"></i> Home</span>
     </div>
 
-    <!-- Sticky Contact Bar -->
+    <!-- Sticky Contact -->
     <div class="sticky-contact">
-        <a href="https://wa.me/918939414842" target="_blank" class="contact-btn whatsapp-btn" title="WhatsApp">💬</a>
-        <a href="tel:+918939414842" class="contact-btn call-btn" title="Call Now">☎️</a>
+        <a href="https://wa.me/918939414842" target="_blank" class="contact-btn whatsapp-btn" title="WhatsApp"><i data-lucide="message-circle"></i></a>
+        <a href="tel:+918939414842" class="contact-btn call-btn" title="Call Now"><i data-lucide="phone"></i></a>
     </div>
-
-    <!-- Back to Top -->
-    <button id="backToTop" class="back-to-top" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑</button>
 
     <!-- Toasts -->
     <div class="toast-container" id="toastContainer"></div>
@@ -782,46 +55,62 @@
         <!-- HOME PAGE -->
         <div id="home" class="page active">
             <div class="hero">
-                <div class="hero-content">
-                    <h1>Pure Water for Healthy Living</h1>
-                    <p>Experience the next generation of water purification. ISO certified systems available exclusively at our local Chennai store with lifetime expert support.</p>
+                <div class="hero-bg-blob blob-1"></div>
+                <div class="hero-bg-blob blob-2"></div>
+                <div class="hero-content animate-on-scroll">
+                    <div class="badge-pill">
+                        <i data-lucide="shield-check" style="width:16px; height:16px;"></i> ISO Certified Quality
+                    </div>
+                    <h1>Pure Water for<br><span class="text-gradient">Healthy Living</span></h1>
+                    <p>Experience the next generation of water purification. Premium systems available exclusively at our Chennai store with lifetime expert support.</p>
                     <div style="display:flex; gap: 1rem;">
-                        <button class="btn btn-primary" onclick="navigateTo('products')">Explore Products</button>
+                        <button class="btn btn-primary" onclick="navigateTo('products')">Explore Products <i data-lucide="arrow-right" style="width:18px;"></i></button>
                         <a href="tel:+918939414842" class="btn btn-secondary">Call Us Now</a>
                     </div>
                 </div>
             </div>
 
-            <!-- Categories Quick Links -->
             <section class="container">
-                <h2>Browse by Category</h2>
-                <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
-                    <div class="service-card" style="text-align:center; padding: 1.5rem; cursor:pointer;" onclick="setFilter('Purifiers')">
-                        <div style="font-size: 40px;">🚰</div>
-                        <h4 style="margin-top:10px;">Purifiers</h4>
+                <div class="section-header animate-on-scroll">
+                    <h2>Browse by Category</h2>
+                    <p>Find the perfect purification solution or accessory for your home.</p>
+                </div>
+                <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+                    <div class="animate-on-scroll stagger-1" onclick="setFilter('Purifiers')">
+                        <div class="service-card" style="text-align:center; align-items: center; cursor:pointer;">
+                            <div class="service-icon-wrapper"><i data-lucide="droplet"></i></div>
+                            <h3 style="margin:0;">Purifiers</h3>
+                        </div>
                     </div>
-                    <div class="service-card" style="text-align:center; padding: 1.5rem; cursor:pointer;" onclick="setFilter('Filters')">
-                        <div style="font-size: 40px;">💧</div>
-                        <h4 style="margin-top:10px;">Filters</h4>
+                    <div class="animate-on-scroll stagger-2" onclick="setFilter('Filters')">
+                        <div class="service-card" style="text-align:center; align-items: center; cursor:pointer;">
+                            <div class="service-icon-wrapper"><i data-lucide="filter"></i></div>
+                            <h3 style="margin:0;">Filters</h3>
+                        </div>
                     </div>
-                    <div class="service-card" style="text-align:center; padding: 1.5rem; cursor:pointer;" onclick="setFilter('Stands')">
-                        <div style="font-size: 40px;">🔧</div>
-                        <h4 style="margin-top:10px;">Stands</h4>
+                    <div class="animate-on-scroll stagger-3" onclick="setFilter('Stands')">
+                        <div class="service-card" style="text-align:center; align-items: center; cursor:pointer;">
+                            <div class="service-icon-wrapper"><i data-lucide="box"></i></div>
+                            <h3 style="margin:0;">Stands</h3>
+                        </div>
                     </div>
-                    <div class="service-card" style="text-align:center; padding: 1.5rem; cursor:pointer;" onclick="setFilter('Taps')">
-                        <div style="font-size: 40px;">💦</div>
-                        <h4 style="margin-top:10px;">Taps</h4>
+                    <div class="animate-on-scroll stagger-4" onclick="setFilter('Taps')">
+                        <div class="service-card" style="text-align:center; align-items: center; cursor:pointer;">
+                            <div class="service-icon-wrapper"><i data-lucide="mouse-pointer-click"></i></div>
+                            <h3 style="margin:0;">Taps</h3>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Testimonials Auto-Carousel -->
-            <section class="container">
-                <h2>Customer Stories</h2>
-                <p>See what thousands of families in Chennai are saying about us.</p>
-                <div class="carousel-container">
+            <section class="container" style="padding-bottom: 6rem;">
+                <div class="section-header animate-on-scroll">
+                    <h2>Customer Stories</h2>
+                    <p>See what thousands of families in Chennai are saying about us.</p>
+                </div>
+                <div class="carousel-container animate-on-scroll">
                     <div class="carousel-track" id="testimonialTrack">
-                        <!-- Populated by JS to duplicate for infinite scroll -->
+                        <!-- Populated by JS -->
                     </div>
                 </div>
             </section>
@@ -829,15 +118,17 @@
 
         <!-- PRODUCTS PAGE -->
         <div id="products" class="page">
-            <div class="container" style="padding-top: 2rem;">
-                <h2>Our Products</h2>
-                <p>Advanced purification systems and high-quality accessories available in-store.</p>
+            <div class="container" style="padding-top: 4rem;">
+                <div class="section-header animate-on-scroll" style="margin-bottom: 3rem; text-align: left;">
+                    <h2>Our Products</h2>
+                    <p style="margin: 0;">Advanced purification systems and high-quality accessories available in-store.</p>
+                </div>
 
                 <!-- Filters -->
-                <div class="filters-container">
+                <div class="filters-container animate-on-scroll stagger-1">
                     <div class="filters-header">
-                        <h3 style="font-size: 16px;">Refine Search</h3>
-                        <button class="btn btn-secondary" style="padding: 6px 12px; font-size:12px;" onclick="resetFilters()">Reset Filters</button>
+                        <h3><i data-lucide="sliders-horizontal"></i> Refine Search</h3>
+                        <button class="btn btn-secondary" style="padding: 8px 16px; font-size:13px;" onclick="resetFilters()">Reset Filters</button>
                     </div>
                     <div class="filters">
                         <div class="filter-group">
@@ -865,134 +156,162 @@
                 </div>
 
                 <!-- Products Grid -->
-                <div class="grid" id="productsGrid">
+                <div class="grid" id="productsGrid" style="padding-bottom: 6rem;">
                     <!-- Populated by JS -->
                 </div>
             </div>
         </div>
 
-        <!-- SERVICES & CONTACT PAGE -->
+        <!-- SERVICES PAGE -->
         <div id="services" class="page">
-            <div class="container" style="padding-top: 2rem;">
-                <h2>Services & Support</h2>
-                <p>Comprehensive care for your water purification systems, available via phone booking.</p>
+            <div class="container" style="padding: 4rem 0 8rem;">
+                <div class="section-header animate-on-scroll">
+                    <h2>Services & Support</h2>
+                    <p>Comprehensive care for your water purification systems, available via phone booking.</p>
+                </div>
 
                 <div class="grid">
-                    <div class="service-card">
-                        <h3><span style="background:var(--accent); padding:10px; border-radius:8px; color:white;">🔧</span> Installation</h3>
-                        <ul class="service-list">
-                            <li>Free water TDS testing</li>
-                            <li>Optimal placement assessment</li>
-                            <li>Complete plumbing integration</li>
-                            <li>Detailed user training</li>
-                        </ul>
-                        <div class="product-price">₹999</div>
-                        <a href="tel:+918939414842" class="btn btn-primary" style="width: 100%; margin-top:1rem; text-decoration:none; text-align:center;">Call to Book</a>
+                    <div class="animate-on-scroll stagger-1">
+                        <div class="service-card">
+                            <div class="service-icon-wrapper"><i data-lucide="wrench"></i></div>
+                            <h3>Installation</h3>
+                            <ul class="service-list">
+                                <li><i data-lucide="check-circle-2"></i> Free water TDS testing</li>
+                                <li><i data-lucide="check-circle-2"></i> Optimal placement assessment</li>
+                                <li><i data-lucide="check-circle-2"></i> Complete plumbing integration</li>
+                                <li><i data-lucide="check-circle-2"></i> Detailed user training</li>
+                            </ul>
+                            <div class="product-price" style="margin-bottom: 1.5rem;">₹999</div>
+                            <a href="tel:+918939414842" class="btn btn-primary" style="width: 100%;">Call to Book</a>
+                        </div>
                     </div>
                     
-                    <div class="service-card">
-                        <h3><span style="background:var(--accent); padding:10px; border-radius:8px; color:white;">📅</span> Annual AMC</h3>
-                        <ul class="service-list">
-                            <li>4 routine maintenance visits</li>
-                            <li>Free pre-filter replacements</li>
-                            <li>Electrical & pump checkup</li>
-                            <li>Priority emergency support</li>
-                        </ul>
-                        <div class="product-price">₹2,499<span style="font-size:14px;color:var(--text-light);font-weight:normal;">/year</span></div>
-                        <a href="tel:+918939414842" class="btn btn-primary" style="width: 100%; margin-top:1rem; text-decoration:none; text-align:center;">Call to Subscribe</a>
+                    <div class="animate-on-scroll stagger-2">
+                        <div class="service-card" style="border-color: var(--accent); box-shadow: var(--shadow-lg);">
+                            <div class="badge" style="position:absolute; top:24px; right:24px; background:var(--accent); color:white;">Most Popular</div>
+                            <div class="service-icon-wrapper"><i data-lucide="calendar-check"></i></div>
+                            <h3>Annual AMC</h3>
+                            <ul class="service-list">
+                                <li><i data-lucide="check-circle-2"></i> 4 routine maintenance visits</li>
+                                <li><i data-lucide="check-circle-2"></i> Free pre-filter replacements</li>
+                                <li><i data-lucide="check-circle-2"></i> Electrical & pump checkup</li>
+                                <li><i data-lucide="check-circle-2"></i> Priority emergency support</li>
+                            </ul>
+                            <div class="product-price" style="margin-bottom: 1.5rem;">₹2,499<span style="font-size:15px;color:var(--text-light);font-weight:500;">/year</span></div>
+                            <a href="tel:+918939414842" class="btn btn-primary" style="width: 100%;">Call to Subscribe</a>
+                        </div>
                     </div>
 
-                    <div class="service-card">
-                        <h3><span style="background:var(--accent); padding:10px; border-radius:8px; color:white;">⚡</span> Repair</h3>
-                        <ul class="service-list">
-                            <li>24-hour resolution guarantee</li>
-                            <li>Genuine spare parts used</li>
-                            <li>Transparent pricing</li>
-                            <li>Post-repair quality check</li>
-                        </ul>
-                        <div class="product-price">From ₹500</div>
-                        <a href="tel:+918939414842" class="btn btn-primary" style="width: 100%; margin-top:1rem; text-decoration:none; text-align:center;">Call for Repair</a>
+                    <div class="animate-on-scroll stagger-3">
+                        <div class="service-card">
+                            <div class="service-icon-wrapper"><i data-lucide="zap"></i></div>
+                            <h3>Repair Services</h3>
+                            <ul class="service-list">
+                                <li><i data-lucide="check-circle-2"></i> 24-hour resolution guarantee</li>
+                                <li><i data-lucide="check-circle-2"></i> Genuine spare parts used</li>
+                                <li><i data-lucide="check-circle-2"></i> Transparent upfront pricing</li>
+                                <li><i data-lucide="check-circle-2"></i> Post-repair quality check</li>
+                            </ul>
+                            <div class="product-price" style="margin-bottom: 1.5rem;">From ₹500</div>
+                            <a href="tel:+918939414842" class="btn btn-primary" style="width: 100%;">Call for Repair</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTACT PAGE -->
+        <div id="contact" class="page">
+            <div class="container" style="padding: 4rem 0 6rem;">
+                <div class="section-header animate-on-scroll">
+                    <h2>Contact & Bookings</h2>
+                    <p>We're here to help you with pure water solutions.</p>
+                </div>
+                
+                <!-- Booking Message -->
+                <div class="animate-on-scroll stagger-1" style="margin-bottom: 4rem;">
+                    <div class="contact-info-card">
+                        <div class="contact-icon-large"><i data-lucide="phone-call"></i></div>
+                        <h3 style="margin-bottom: 1rem; font-size: 2rem;">Phone Bookings Only</h3>
+                        <p style="color: var(--text-light); margin-bottom: 2.5rem; font-size: 1.1rem; max-width: 600px; margin-left: auto; margin-right: auto;">We operate exclusively offline to ensure the best personal service. For product inquiries, new installations, or repairs, please call us directly or visit our shop!</p>
+                        <a href="tel:+918939414842" class="btn btn-primary" style="font-size: 1.1rem; padding: 18px 48px; border-radius: 999px;">Call +91-8939414842</a>
                     </div>
                 </div>
 
-                <hr style="border:none; border-top:1px solid var(--border); margin: 4rem 0;">
-
-                <!-- Booking Message -->
-                <section id="bookingSection" style="padding: 0; text-align: center;">
-                    <h2>Book a Service</h2>
-                    <div style="background: var(--card-bg); padding: 3rem 2rem; border-radius: 12px; box-shadow: var(--shadow); max-width: 700px; margin: 0 auto; border: 2px solid var(--accent);">
-                        <div style="font-size: 48px; margin-bottom: 1rem;">📞</div>
-                        <h3 style="margin-bottom: 1rem; font-size: 24px;">Phone Bookings Only</h3>
-                        <p style="color: var(--text-light); margin-bottom: 2rem; font-size: 16px;">We operate exclusively offline to ensure the best personal service for our customers. For product inquiries, new installations, or repairs, please call us directly or visit our shop!</p>
-                        <a href="tel:+918939414842" class="btn btn-primary" style="font-size: 18px; padding: 15px 40px; border-radius: 30px;">Call +91-8939414842</a>
-                    </div>
-                </section>
-
-                <hr style="border:none; border-top:1px solid var(--border); margin: 4rem 0;">
-
                 <!-- Contact & Store -->
-                <section id="contactSection" style="padding: 0;">
-                    <div style="background: var(--primary-dark); color: white; padding: 3rem 2rem; border-radius: 16px;">
-                        <h2 style="color:white; text-align:center; margin-bottom: 2rem;">Visit Our Store</h2>
+                <div class="store-info-wrapper animate-on-scroll stagger-2">
+                    <div class="store-header">
+                        <h2 style="color:white; margin:0;">Visit Our Store</h2>
+                    </div>
+                    <div class="store-body">
                         <div class="grid">
-                            <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 12px; backdrop-filter: blur(10px);">
-                                <h3 style="margin-bottom:1rem;">📍 Sales & Service Center</h3>
-                                <p style="opacity:0.9; margin-bottom:1.5rem;">Mangadu Main Road<br>Opposite Bus Stop<br>Chennai - 600122, TN</p>
-                                <div style="display:flex; flex-direction:column; gap:10px;">
-                                    <a href="tel:+918939414842" style="color:white; text-decoration:none; display:flex; align-items:center; gap:10px;">
-                                        <span>📞</span> +91-8939414842
+                            <div style="padding-right: 2rem;">
+                                <h3 style="margin-bottom:1.5rem; display:flex; align-items:center; gap:12px;">
+                                    <i data-lucide="map-pin" style="color:var(--primary);"></i> Sales & Service Center
+                                </h3>
+                                <p style="color:var(--text-light); margin-bottom:2rem; font-size:1.1rem; line-height:1.8;">Mangadu Main Road<br>Opposite Bus Stop<br>Chennai - 600122, Tamil Nadu</p>
+                                <div style="display:flex; flex-direction:column; gap:1rem;">
+                                    <a href="tel:+918939414842" class="btn btn-secondary" style="justify-content: flex-start;">
+                                        <i data-lucide="phone" style="width:18px;"></i> +91-8939414842
                                     </a>
-                                    <a href="https://wa.me/918939414842" target="_blank" style="color:#25D366; text-decoration:none; display:flex; align-items:center; gap:10px; font-weight:bold;">
-                                        <span>💬</span> WhatsApp Us
+                                    <a href="https://wa.me/918939414842" target="_blank" class="btn btn-secondary" style="justify-content: flex-start; color:#10B981; border-color:#10B981;">
+                                        <i data-lucide="message-circle" style="width:18px;"></i> WhatsApp Us
                                     </a>
                                 </div>
                             </div>
-                            <div>
-                                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
-                                    <h3 style="margin: 0;">Working Hours</h3>
-                                    <span id="storeStatusBadge" style="padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: bold; border: 1px solid transparent;"></span>
+                            <div style="padding-left: 2rem; border-left: 1px solid var(--border);">
+                                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem;">
+                                    <h3 style="margin: 0; display:flex; align-items:center; gap:12px;">
+                                        <i data-lucide="clock" style="color:var(--primary);"></i> Working Hours
+                                    </h3>
+                                    <span id="storeStatusBadge"></span>
                                 </div>
-                                <table style="width:100%; color:rgba(255,255,255,0.9); border-collapse: collapse;">
-                                    <tr style="border-bottom:1px solid rgba(255,255,255,0.1);"><td style="padding:10px 0;">Monday - Saturday</td><td style="text-align:right;">9:00 AM - 10:00 PM</td></tr>
-                                    <tr><td style="padding:10px 0;">Sunday</td><td style="text-align:right; color:var(--error);">Closed</td></tr>
+                                <table style="width:100%; border-collapse: collapse; font-size: 1.1rem;">
+                                    <tr style="border-bottom:1px solid var(--border);">
+                                        <td style="padding:16px 0; font-weight:500;">Monday - Saturday</td>
+                                        <td style="text-align:right; color:var(--text-light);">9:00 AM - 10:00 PM</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding:16px 0; font-weight:500;">Sunday</td>
+                                        <td style="text-align:right; color:var(--error); font-weight:600;">Closed</td>
+                                    </tr>
                                 </table>
                             </div>
                         </div>
                     </div>
-                </section>
+                </div>
             </div>
         </div>
     </main>
 
     <!-- Compare Floating Bar -->
     <div id="compareBar">
-        <span id="compareCount">0 items selected</span>
-        <button class="btn btn-primary" style="padding: 6px 16px;" onclick="openCompareModal()">Compare Specs</button>
-        <button class="btn btn-secondary" style="padding: 6px 16px; background:transparent; color:white; border-color:rgba(255,255,255,0.3);" onclick="clearCompare()">Clear</button>
+        <span id="compareCount" style="font-weight:600;">0 items selected</span>
+        <button class="btn" style="background:white; color:var(--text); padding: 8px 24px;" onclick="openCompareModal()">Compare Specs</button>
+        <button class="btn" style="background:transparent; color:white; border: 1px solid rgba(255,255,255,0.3); padding: 8px 24px;" onclick="clearCompare()">Clear</button>
     </div>
 
-    <!-- Modals -->
     <!-- Quick View Modal -->
     <div id="quickViewModal" class="modal" onclick="if(event.target===this) closeModal('quickViewModal')">
-        <div class="modal-content" style="max-width: 600px;">
-            <button class="modal-close" onclick="closeModal('quickViewModal')">×</button>
+        <div class="modal-content" style="max-width: 800px;">
+            <button class="modal-close" onclick="closeModal('quickViewModal')"><i data-lucide="x"></i></button>
             <div id="quickViewContent"></div>
         </div>
     </div>
 
     <!-- Compare Modal -->
     <div id="compareModal" class="modal" onclick="if(event.target===this) closeModal('compareModal')">
-        <div class="modal-content" style="max-width: 900px;">
-            <button class="modal-close" onclick="closeModal('compareModal')">×</button>
-            <h2>Product Comparison</h2>
+        <div class="modal-content" style="max-width: 1000px;">
+            <button class="modal-close" onclick="closeModal('compareModal')"><i data-lucide="x"></i></button>
+            <h2 style="margin-bottom: 2rem;">Product Comparison</h2>
             <div style="overflow-x:auto;">
                 <table class="comparison-table" id="compareTable">
                     <!-- Populated by JS -->
                 </table>
             </div>
-            <div style="margin-top: 1.5rem; text-align: center;">
-                <p style="color: var(--text-light); font-size: 14px; margin-bottom: 1rem;">Products can be purchased directly by visiting our store or calling us.</p>
-                <a href="tel:+918939414842" class="btn btn-primary">Call to Inquire</a>
+            <div style="margin-top: 3rem; text-align: center; background: var(--bg); padding: 2rem; border-radius: 16px;">
+                <p style="color: var(--text-light); font-size: 15px; margin-bottom: 1.5rem;">Products can be purchased directly by visiting our store or calling us.</p>
+                <a href="tel:+918939414842" class="btn btn-primary" style="padding: 14px 40px;"><i data-lucide="phone"></i> Call to Inquire</a>
             </div>
         </div>
     </div>
@@ -1001,427 +320,33 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <div class="logo" style="color:white; margin-bottom:1rem;">💧 AquaGuard</div>
-                <p style="font-size: 14px; opacity: 0.8; margin-bottom:1rem;">Delivering pure, safe, and healthy drinking water solutions across Chennai since 2010.</p>
+                <div class="logo" style="color:white; margin-bottom:1.5rem;"><i data-lucide="waves" style="color:var(--accent);"></i> AquaGuard</div>
+                <p style="font-size: 15px; color: #94A3B8; margin-bottom:1rem; line-height: 1.8;">Delivering pure, safe, and healthy drinking water solutions across Chennai since 2010.</p>
             </div>
             <div class="footer-section">
                 <h3>Quick Links</h3>
                 <ul>
-                    <li><a href="#" onclick="navigateTo('products')">View Products</a></li>
-                    <li><a href="#" onclick="navigateTo('services')">Our Services</a></li>
-                    <li><a href="tel:+918939414842">Call for Installation</a></li>
-                    <li><a href="#" onclick="navigateTo('services', 'contactSection')">Store Location</a></li>
+                    <li><a href="#" onclick="navigateTo('products'); return false;"><i data-lucide="chevron-right" style="width:16px;"></i> View Products</a></li>
+                    <li><a href="#" onclick="navigateTo('services'); return false;"><i data-lucide="chevron-right" style="width:16px;"></i> Our Services</a></li>
+                    <li><a href="tel:+918939414842"><i data-lucide="chevron-right" style="width:16px;"></i> Call for Installation</a></li>
+                    <li><a href="#" onclick="navigateTo('contact'); return false;"><i data-lucide="chevron-right" style="width:16px;"></i> Store Location</a></li>
                 </ul>
             </div>
             <div class="footer-section">
-                <h3>Contact</h3>
+                <h3>Contact Info</h3>
                 <ul>
-                    <li><a href="tel:+918939414842">📞 +91-8939414842</a></li>
-                    <li><a href="https://wa.me/918939414842" target="_blank">💬 WhatsApp Support</a></li>
-                    <li><a href="mailto:support@aquaguard.com">✉️ support@aquaguard.com</a></li>
+                    <li><a href="tel:+918939414842"><i data-lucide="phone" style="width:18px;"></i> +91-8939414842</a></li>
+                    <li><a href="https://wa.me/918939414842" target="_blank"><i data-lucide="message-circle" style="width:18px;"></i> WhatsApp Support</a></li>
+                    <li><a href="mailto:support@aquaguard.com"><i data-lucide="mail" style="width:18px;"></i> support@aquaguard.com</a></li>
                 </ul>
             </div>
         </div>
-        <div style="text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 13px; opacity: 0.6;">
+        <div style="text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 14px; color: #64748B;">
             &copy; 2024 AquaGuard Solutions. All rights reserved. | ISO 9001:2015 Certified
         </div>
     </footer>
 
     <!-- Scripts -->
-    <script>
-        // Database
-        const products = [
-            { id: 'pro-1000', name: 'AquaGuard Pro 1000', price: 12999, originalPrice: 14500, type: 'RO + UV', capacity: '10L', category: 'Purifiers', icon: '🚰', stock: true, rating: 4.8, reviews: 124 },
-            { id: 'elite-2000', name: 'AquaGuard Elite 2000', price: 18499, originalPrice: 20000, type: 'RO + UV + TDS', capacity: '12L', category: 'Purifiers', icon: '💎', stock: true, rating: 4.9, reviews: 89 },
-            { id: 'home-500', name: 'AquaGuard Home 500', price: 8999, originalPrice: 9999, type: 'UV + Alkaline', capacity: '7L', category: 'Purifiers', icon: '🏠', stock: true, rating: 4.5, reviews: 210 },
-            { id: 'premium-3000', name: 'AquaGuard Premium 3000', price: 25999, originalPrice: 28999, type: 'RO + UV + Copper', capacity: '12L', category: 'Purifiers', icon: '👑', stock: false, rating: 5.0, reviews: 45 },
-            { id: 'ro-membrane', name: 'RO Membrane (100 GPD)', price: 2499, originalPrice: 0, type: 'Filter Part', capacity: 'Standard', category: 'Filters', icon: '💧', stock: true, rating: 4.7, reviews: 340 },
-            { id: 'alkaline-filter', name: 'Alkaline Cartridge', price: 1299, originalPrice: 1500, type: 'Filter Part', capacity: 'Standard', category: 'Filters', icon: '✨', stock: true, rating: 4.6, reviews: 112 },
-            { id: 'metal-stand', name: 'Metal Stand (Silver)', price: 1999, originalPrice: 2200, type: 'Accessory', capacity: 'Heavy Duty', category: 'Stands', icon: '🔧', stock: true, rating: 4.4, reviews: 88 },
-            { id: 'sensor-tap', name: 'Sensor Tap (Auto)', price: 3999, originalPrice: 4500, type: 'Accessory', capacity: 'Motion', category: 'Taps', icon: '🤖', stock: true, rating: 4.8, reviews: 56 },
-            { id: 'metal-elbow-90', name: 'Metal 90° Elbow (1/4")', price: 249, originalPrice: 0, type: 'Connector', capacity: 'Brass', category: 'Elbows', icon: '⌐', stock: true, rating: 4.5, reviews: 34 }
-        ];
-
-        const testimonials = [
-            { text: "Best investment for our family. Water quality improved significantly!", author: "Priya Sharma", role: "Chennai" },
-            { text: "Service team is extremely professional. On-time maintenance.", author: "Rajesh Kumar", role: "Business Owner" },
-            { text: "Excellent support. Solved our water TDS problem in 24 hours.", author: "Sana Ahmed", role: "Apartment Manager" },
-            { text: "The new RO system is completely silent and water tastes great.", author: "Vikram S.", role: "Homeowner" }
-        ];
-
-        // State
-        let compareList = new Set();
-        let currentTimeout = null;
-
-        // Dark Mode Logic
-        const themeToggle = document.getElementById('themeToggle');
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        document.body.dataset.theme = savedTheme;
-        themeToggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
-
-        themeToggle.addEventListener('click', () => {
-            const newTheme = document.body.dataset.theme === 'dark' ? 'light' : 'dark';
-            document.body.dataset.theme = newTheme;
-            localStorage.setItem('theme', newTheme);
-            themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
-            themeToggle.style.transform = `rotate(${Math.random() * 360}deg)`;
-        });
-
-        // Toast Notifications
-        function showToast(message, type = 'success') {
-            const container = document.getElementById('toastContainer');
-            const toast = document.createElement('div');
-            toast.className = `toast ${type}`;
-            toast.innerHTML = `
-                <span style="font-size:18px;">${type==='success'?'✅':'❌'}</span>
-                <span>${message}</span>
-            `;
-            container.appendChild(toast);
-            
-            // Trigger animation
-            requestAnimationFrame(() => {
-                toast.classList.add('show');
-            });
-
-            setTimeout(() => {
-                toast.classList.remove('show');
-                setTimeout(() => toast.remove(), 300);
-            }, 3000);
-        }
-
-        // Navigation
-        function navigateTo(pageId, scrollToId = null) {
-            // Update Nav Buttons
-            document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
-            const activeBtn = Array.from(document.querySelectorAll('nav button')).find(b => b.getAttribute('onclick').includes(pageId));
-            if(activeBtn) activeBtn.classList.add('active');
-
-            // Update Breadcrumbs
-            const breadcrumbs = document.getElementById('breadcrumbs');
-            const pageNames = { 'home': 'Home', 'products': 'Products & Prices', 'services': 'Services' };
-            breadcrumbs.innerHTML = `
-                <span style="cursor:pointer;" onclick="navigateTo('home')">Home</span> 
-                ${pageId !== 'home' ? ` > <span class="active">${pageNames[pageId]}</span>` : ''}
-            `;
-
-            // Fade transition
-            const activePage = document.querySelector('.page.active');
-            if (activePage && activePage.id !== pageId) {
-                activePage.style.opacity = '0';
-                setTimeout(() => {
-                    activePage.classList.remove('active');
-                    const newPage = document.getElementById(pageId);
-                    newPage.classList.add('active');
-                    setTimeout(() => newPage.style.opacity = '1', 50);
-                    
-                    if (pageId === 'products') applyFilters();
-                    
-                    if (scrollToId) {
-                        setTimeout(() => document.getElementById(scrollToId).scrollIntoView({behavior: 'smooth', block: 'start'}), 100);
-                    } else {
-                        window.scrollTo({top: 0, behavior: 'smooth'});
-                    }
-                }, 300);
-            } else if (!activePage) {
-                document.getElementById(pageId).classList.add('active');
-                setTimeout(() => document.getElementById(pageId).style.opacity = '1', 50);
-                if (pageId === 'products') applyFilters();
-            } else if (scrollToId) {
-                 document.getElementById(scrollToId).scrollIntoView({behavior: 'smooth', block: 'start'});
-            }
-        }
-
-        // Setup Testimonials
-        function initTestimonials() {
-            const track = document.getElementById('testimonialTrack');
-            const html = testimonials.map(t => `
-                <div class="testimonial">
-                    <p class="stars">⭐⭐⭐⭐⭐</p>
-                    <div class="testimonial-text">"${t.text}"</div>
-                    <div style="font-weight:700;">${t.author}</div>
-                    <div style="font-size:12px;color:var(--text-light);">${t.role}</div>
-                </div>
-            `).join('');
-            // Duplicate for smooth infinite scroll
-            track.innerHTML = html + html; 
-        }
-
-        // Product Rendering
-        function getStarsHTML(rating, count) {
-            return `<div class="stars">
-                ${'⭐'.repeat(Math.floor(rating))} 
-                <span style="margin-left:5px;">(${count})</span>
-            </div>`;
-        }
-
-        function renderProducts(list) {
-            const grid = document.getElementById('productsGrid');
-            grid.innerHTML = '';
-            
-            if(list.length === 0) {
-                grid.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:3rem;">
-                    <div style="font-size:40px; margin-bottom:1rem;">🔍</div>
-                    <h3>No products found</h3>
-                    <p style="color:var(--text-light); margin-top:10px;">Try adjusting your filters.</p>
-                </div>`;
-                return;
-            }
-
-            list.forEach(p => {
-                const discount = p.originalPrice > p.price ? Math.round((1 - p.price/p.originalPrice) * 100) : 0;
-                
-                const card = document.createElement('div');
-                card.className = 'product-card';
-                card.innerHTML = `
-                    <div class="badges">
-                        ${discount > 0 ? `<div class="badge discount">-${discount}% OFF</div>` : ''}
-                        <div class="badge stock" style="${!p.stock ? 'background:var(--text-light);' : ''}">${p.stock ? 'In Stock' : 'Out of Stock'}</div>
-                    </div>
-                    
-                    <label class="compare-checkbox" title="Add to compare">
-                        <input type="checkbox" onchange="toggleCompare('${p.id}', this.checked)" ${compareList.has(p.id)?'checked':''}> 
-                        Compare
-                    </label>
-
-                    <div class="product-image" onclick="openQuickView('${p.id}')">
-                        ${p.icon}
-                        <div class="quick-view-overlay">
-                            <button class="quick-view-btn">Quick View</button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <div class="product-type">${p.category}</div>
-                        <div class="product-name">${p.name}</div>
-                        ${getStarsHTML(p.rating, p.reviews)}
-                        <div class="product-specs">${p.type} • ${p.capacity}</div>
-                        <div class="product-price-wrapper">
-                            <div class="product-price">₹${p.price.toLocaleString()}</div>
-                            ${discount > 0 ? `<div class="product-price-original">₹${p.originalPrice.toLocaleString()}</div>` : ''}
-                        </div>
-                        <div class="product-actions">
-                            <button class="btn-buy" onclick="openQuickView('${p.id}')">Details</button>
-                            <button class="btn-visit" onclick="navigateTo('services', 'contactSection')">Store</button>
-                        </div>
-                    </div>
-                `;
-                grid.appendChild(card);
-            });
-        }
-
-        // Filtering & Search Logic
-        function setFilter(cat) {
-            document.getElementById('categoryFilter').value = cat;
-            navigateTo('products');
-        }
-
-        function resetFilters() {
-            document.getElementById('categoryFilter').value = '';
-            document.getElementById('priceFilter').value = 50000;
-            document.getElementById('priceValue').textContent = '50000';
-            document.getElementById('searchFilter').value = '';
-            document.getElementById('autocompleteList').style.display = 'none';
-            applyFilters();
-            showToast('Filters reset');
-        }
-
-        function applyFilters() {
-            const grid = document.getElementById('productsGrid');
-            // Show Skeletons
-            grid.innerHTML = Array(6).fill().map(() => `
-                <div class="product-card" style="padding:1rem;">
-                    <div class="skeleton" style="height:200px; border-radius:8px;"></div>
-                    <div class="skeleton" style="width:40%; margin-top:1rem;"></div>
-                    <div class="skeleton" style="width:80%;"></div>
-                    <div class="skeleton" style="width:60%;"></div>
-                </div>
-            `).join('');
-
-            clearTimeout(currentTimeout);
-            currentTimeout = setTimeout(() => {
-                const cat = document.getElementById('categoryFilter').value;
-                const price = parseInt(document.getElementById('priceFilter').value);
-                const search = document.getElementById('searchFilter').value.toLowerCase();
-
-                const filtered = products.filter(p => {
-                    if (cat && p.category !== cat) return false;
-                    if (p.price > price) return false;
-                    if (search && !p.name.toLowerCase().includes(search)) return false;
-                    return true;
-                });
-
-                updateActiveFilters(cat, price, search);
-                renderProducts(filtered);
-            }, 400); // simulate network delay for visual feedback
-        }
-
-        function updateActiveFilters(cat, price, search) {
-            const container = document.getElementById('activeFilters');
-            let html = '';
-            if(cat) html += `<div class="filter-pill">${cat} <button onclick="document.getElementById('categoryFilter').value=''; applyFilters()">×</button></div>`;
-            if(price < 50000) html += `<div class="filter-pill">Under ₹${price} <button onclick="document.getElementById('priceFilter').value=50000; document.getElementById('priceValue').textContent='50000'; applyFilters()">×</button></div>`;
-            if(search) html += `<div class="filter-pill">"${search}" <button onclick="document.getElementById('searchFilter').value=''; applyFilters()">×</button></div>`;
-            container.innerHTML = html;
-        }
-
-        function handleSearch(val) {
-            applyFilters();
-            const list = document.getElementById('autocompleteList');
-            if(!val) { list.style.display = 'none'; return; }
-            
-            const matches = products.filter(p => p.name.toLowerCase().includes(val.toLowerCase())).slice(0,5);
-            if(matches.length > 0) {
-                list.innerHTML = matches.map(m => `<div class="autocomplete-item" onclick="selectAutocomplete('${m.id}')">${m.name}</div>`).join('');
-                list.style.display = 'block';
-            } else {
-                list.style.display = 'none';
-            }
-        }
-
-        function selectAutocomplete(id) {
-            const prod = products.find(p => p.id === id);
-            document.getElementById('searchFilter').value = prod.name;
-            document.getElementById('autocompleteList').style.display = 'none';
-            applyFilters();
-        }
-
-        // Compare Functionality
-        function toggleCompare(id, isChecked) {
-            if(isChecked) {
-                if(compareList.size >= 3) {
-                    showToast('You can compare up to 3 items only', 'error');
-                    event.target.checked = false;
-                    return;
-                }
-                compareList.add(id);
-                showToast('Added to compare');
-            } else {
-                compareList.delete(id);
-            }
-            updateCompareBar();
-        }
-
-        function updateCompareBar() {
-            const bar = document.getElementById('compareBar');
-            const count = document.getElementById('compareCount');
-            count.textContent = `${compareList.size} item${compareList.size>1?'s':''} selected`;
-            if(compareList.size > 0) {
-                bar.classList.add('show');
-            } else {
-                bar.classList.remove('show');
-            }
-        }
-
-        function clearCompare() {
-            compareList.clear();
-            updateCompareBar();
-            applyFilters(); // refresh checkboxes
-        }
-
-        function openCompareModal() {
-            if(compareList.size < 2) {
-                showToast('Select at least 2 items to compare', 'warning');
-                return;
-            }
-            const table = document.getElementById('compareTable');
-            const items = Array.from(compareList).map(id => products.find(p => p.id === id));
-            
-            let thead = `<tr><th>Feature</th>${items.map(i => `<th><div style="font-size:40px;text-align:center;">${i.icon}</div><div style="text-align:center;">${i.name}</div></th>`).join('')}</tr>`;
-            let rows = [
-                { label: 'Price', key: p => `₹${p.price.toLocaleString()}` },
-                { label: 'Category', key: p => p.category },
-                { label: 'Type / Tech', key: p => p.type },
-                { label: 'Capacity/Size', key: p => p.capacity },
-                { label: 'Rating', key: p => getStarsHTML(p.rating, p.reviews) },
-                { label: 'Availability', key: p => p.stock ? '<span style="color:var(--success)">In-Store</span>' : '<span style="color:var(--error)">Out of Stock</span>' }
-            ];
-
-            let tbody = rows.map(r => `<tr><td><strong>${r.label}</strong></td>${items.map(i => `<td>${r.key(i)}</td>`).join('')}</tr>`).join('');
-            
-            table.innerHTML = `<thead>${thead}</thead><tbody>${tbody}</tbody>`;
-            document.getElementById('compareModal').classList.add('active');
-        }
-
-        // Quick View Functionality
-        function openQuickView(id) {
-            const p = products.find(x => x.id === id);
-            const content = document.getElementById('quickViewContent');
-            
-            content.innerHTML = `
-                <div style="display:flex; gap:2rem; flex-wrap:wrap;">
-                    <div style="flex:1; min-width:250px; background:var(--bg); border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:120px; padding:2rem;">
-                        ${p.icon}
-                    </div>
-                    <div style="flex:1; min-width:250px;">
-                        <div class="product-type" style="margin-bottom:10px;">${p.category}</div>
-                        <h2 style="margin-bottom:10px;">${p.name}</h2>
-                        ${getStarsHTML(p.rating, p.reviews)}
-                        <div style="margin:20px 0;">
-                            <span style="font-size:32px; font-weight:800; color:var(--primary);">₹${p.price.toLocaleString()}</span>
-                            ${p.originalPrice > p.price ? `<span style="text-decoration:line-through; color:var(--text-light); margin-left:10px;">₹${p.originalPrice.toLocaleString()}</span>` : ''}
-                        </div>
-                        <ul style="list-style:none; margin-bottom:20px; color:var(--text-light); line-height:2;">
-                            <li>✅ Technology: <strong>${p.type}</strong></li>
-                            <li>✅ Specification: <strong>${p.capacity}</strong></li>
-                            <li>🏬 <strong>Available exclusively at our store</strong></li>
-                        </ul>
-                        <div style="display:flex; gap:10px;">
-                            <a href="tel:+918939414842" class="btn btn-primary" style="flex:1; text-align:center;">Call to Buy</a>
-                            <button class="btn btn-secondary" onclick="closeModal('quickViewModal'); navigateTo('services', 'contactSection')">Visit Store</button>
-                        </div>
-                    </div>
-                </div>
-            `;
-            document.getElementById('quickViewModal').classList.add('active');
-        }
-
-        function closeModal(id) {
-            document.getElementById(id).classList.remove('active');
-        }
-
-        // Back to Top Observer
-        window.addEventListener('scroll', () => {
-            const btn = document.getElementById('backToTop');
-            if (window.scrollY > 500) btn.classList.add('visible');
-            else btn.classList.remove('visible');
-        });
-
-        // Store Status
-        function updateStoreStatus() {
-            const badge = document.getElementById('storeStatusBadge');
-            if(!badge) return;
-            
-            const now = new Date();
-            const day = now.getDay(); // 0 is Sunday, 1-6 is Mon-Sat
-            const hour = now.getHours();
-            
-            let isOpen = false;
-            // Open Mon (1) to Sat (6) between 9:00 AM and 9:59 PM (ends exactly at 10:00 PM)
-            if (day >= 1 && day <= 6) {
-                if (hour >= 9 && hour < 22) {
-                    isOpen = true;
-                }
-            }
-            
-            if (isOpen) {
-                badge.textContent = '🟢 OPEN NOW';
-                badge.style.backgroundColor = 'rgba(16, 185, 129, 0.2)';
-                badge.style.color = '#10B981';
-                badge.style.borderColor = '#10B981';
-            } else {
-                badge.textContent = '🔴 CLOSED';
-                badge.style.backgroundColor = 'rgba(239, 68, 68, 0.2)';
-                badge.style.color = '#EF4444';
-                badge.style.borderColor = '#EF4444';
-            }
-        }
-        
-        updateStoreStatus();
-        setInterval(updateStoreStatus, 60000); // Check every minute
-
-        // Init
-        initTestimonials();
-        navigateTo('home');
-
-    </script>
+    <script src="js/main.js"></script>
 </body>
 </html>
