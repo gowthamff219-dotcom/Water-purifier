@@ -774,3 +774,134 @@
             0% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
+
+/* --- Mobile Responsiveness --- */
+/* (Added missing base styles for sticky contact) */
+.sticky-contact {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 999;
+}
+.contact-btn {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-size: 24px;
+    box-shadow: var(--shadow-lg); transition: var(--transition);
+    text-decoration: none;
+}
+.contact-btn svg { width: 28px; height: 28px; fill: currentColor; }
+.contact-btn:hover { transform: scale(1.1); }
+.whatsapp-btn { background: #10B981; }
+.call-btn { background: var(--primary); }
+
+@media (max-width: 768px) {
+    /* Header & Nav */
+    .header-content {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    .nav-controls {
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+    }
+    nav {
+        width: 100%;
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding-bottom: 0.5rem;
+        flex-wrap: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
+    }
+    nav::-webkit-scrollbar { display: none; /* Chrome/Safari */ }
+    nav button { white-space: nowrap; }
+
+    .theme-toggle {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+    }
+
+    /* Hero Section */
+    .hero {
+        padding: 3rem 1rem;
+        margin: 1rem;
+        min-height: 60vh;
+        border-radius: 24px;
+    }
+    .hero h1 { font-size: 2.2rem; }
+    .hero-content > div:last-child {
+        flex-direction: column;
+        width: 100%;
+    }
+    .hero-content .btn { width: 100%; }
+
+    /* Modals & Layouts */
+    .modal-content {
+        padding: 1.5rem;
+        width: 95%;
+        margin: 1rem;
+    }
+    #quickViewContent > div {
+        flex-direction: column !important;
+        gap: 1.5rem !important;
+    }
+    #quickViewContent > div > div:first-child {
+        padding: 2rem !important;
+    }
+
+    /* Store Contact Layout */
+    .store-body { padding: 2rem 1.5rem; }
+    .store-header { padding: 2rem 1.5rem; }
+    .store-body .grid > div:first-child {
+        padding-right: 0 !important;
+        border-right: none !important;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid var(--border);
+    }
+    .store-body .grid > div:last-child {
+        padding-left: 0 !important;
+        border-left: none !important;
+        padding-top: 2rem;
+    }
+    
+    /* Compare Bar */
+    #compareBar {
+        width: 90%;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 12px;
+        gap: 12px;
+        border-radius: 16px;
+    }
+    #compareBar .btn {
+        flex: 1;
+        padding: 8px 12px;
+        white-space: nowrap;
+    }
+
+    /* General Spacing */
+    section { padding: 3rem 0; }
+    .container { padding: 0 1rem; }
+    .filters { grid-template-columns: 1fr; }
+    
+    /* Footer */
+    .footer-content { gap: 2.5rem; }
+}
+
+
+@media (max-width: 768px) {
+    /* Fix testimonial width on mobile */
+    .testimonial {
+        width: 320px;
+        padding: 1.5rem;
+    }
+}
+
