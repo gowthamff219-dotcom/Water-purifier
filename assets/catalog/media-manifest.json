@@ -1,0 +1,248 @@
+[
+  {
+    "model": "dolphin",
+    "source": "assets/ro1/WhatsApp Image 2026-10-16 at 18.25.51.jpeg",
+    "sha256": "3e13fd0c828d72bbc7e59c281b1d512e6efbfeb49a76600f5cdd9237852e8cdf",
+    "display": "assets/catalog/dolphin/display/01.jpg"
+  },
+  {
+    "model": "dolphin",
+    "source": "assets/ro1/WhatsApp Image 2026-10-16 at 18.25.51 (1).jpeg",
+    "sha256": "5d90bd1882ee8004f9e8093877f110d7cdfb63f600b7bde1090aa049fbbb8520",
+    "display": "assets/catalog/dolphin/display/02.jpg"
+  },
+  {
+    "model": "dolphin",
+    "source": "assets/ro1/WhatsApp Image 2026-10-16 at 18.25.52.jpeg",
+    "sha256": "113290c5626a51d37d4f0bad9bcadaab6d0c0a25c51ed446efe37961c727f3fb",
+    "display": "assets/catalog/dolphin/display/03.jpg"
+  },
+  {
+    "model": "mars",
+    "source": "assets/whatsapp-originals/WhatsApp Image 2026-10-16 at 18.26.17.jpeg",
+    "sha256": "97c218c7cd6d9fb0adf017a89e8bf023f07a1414dc3288db528af5b6d33e4784",
+    "display": "assets/catalog/mars/display/01.jpg"
+  },
+  {
+    "model": "mars",
+    "source": "assets/whatsapp-originals/WhatsApp Image 2026-10-16 at 18.26.18.jpeg",
+    "sha256": "67111f0ce7a8a6eafa9fcfe051e6a72c6b30c799c576590b3143d32f64b6fc52",
+    "display": "assets/catalog/mars/display/02.jpg"
+  },
+  {
+    "model": "mars",
+    "source": "assets/whatsapp-originals/WhatsApp Image 2026-10-16 at 18.26.18g.jpeg",
+    "sha256": "b2868466d725ca447f72001f07df05c28df350153533dae581c15d3b5d8ec460",
+    "display": "assets/catalog/mars/display/03.jpg"
+  },
+  {
+    "model": "roma",
+    "source": "assets/whatsapp-originals/WhatsApp Image 2026-10-16 at 18.26.58.jpeg",
+    "sha256": "15282fafebef6cd5cd912da71e7b96cf5e622055e39bfd934a5bc67bd16b76c9",
+    "display": "assets/catalog/roma/display/01.jpg"
+  },
+  {
+    "model": "roma",
+    "source": "assets/whatsapp-originals/WhatsApp Image 2026-10-16 at 18.26.58r.jpeg",
+    "sha256": "b79393e39116b30e3889084c4387f65048df0b42d5eb5b5672f9aaa9daa971d7",
+    "display": "assets/catalog/roma/display/02.jpg"
+  },
+  {
+    "model": "roma",
+    "source": "assets/whatsapp-originals/WhatsApp Image 2026-10-16 at 18.26.59v.jpeg",
+    "sha256": "ed76a0894834852880c60f06513b1f6641eb1f41a9f61feedf87d64e5fc42d3e",
+    "display": "assets/catalog/roma/display/03.jpg"
+  },
+  {
+    "model": "roma",
+    "source": "assets/whatsapp-originals/WhatsApp Image 2026-10-16 at 18.27.00x.jpeg",
+    "sha256": "7513e52aa54360fd8db1b736ef21e126bbdf5db04ebe6956e6a2190b85cb19a3",
+    "display": "assets/catalog/roma/display/04.jpg"
+  },
+  {
+    "model": "roma",
+    "source": "assets/whatsapp-originals/WhatsApp Image 2026-10-16 at t.jpeg",
+    "sha256": "e60733d07a6a38b0faee97137f017ceb53788bb87a67659fc6a7dc184ed3b585",
+    "display": "assets/catalog/roma/display/05.jpg"
+  },
+  {
+    "model": "roma",
+    "source": "assets/whatsapp-originals/WhatsApp Image 2026-10-16 at w.jpeg",
+    "sha256": "1d640f700cc7793469be69d6c8ae490dd19ecf3eb8deea85c0a40b3e6d85b8f0",
+    "display": "assets/catalog/roma/display/06.jpg"
+  },
+  {
+    "model": "purosis",
+    "source": "assets/whatsapp-originals/WhatsApp Image 2026-10-16 at 18.27.28y.jpeg",
+    "sha256": "f3f82769caf8c13a07b1550b365f509b492781b5deee0941f3fe0dff8235cf42",
+    "crop": {
+      "x": 0,
+      "y": 332,
+      "width": 540,
+      "height": 540
+    },
+    "display": "assets/catalog/purosis/display/01.svg"
+  },
+  {
+    "model": "purosis",
+    "source": "assets/whatsapp-originals/WhatsApp Image 2026-10-16 at 18.27.28z.jpeg",
+    "sha256": "ffd8ab5c8114c1906c5e7a482078ee4a4255fe33cbb673616e1ebbb51e160ff9",
+    "crop": {
+      "x": 0,
+      "y": 286,
+      "width": 540,
+      "height": 632
+    },
+    "display": "assets/catalog/purosis/display/02.svg"
+  },
+  {
+    "model": "purosis",
+    "source": "assets/whatsapp-originals/WhatsApp Image 2026-10-16 at 18.27.29a.jpeg",
+    "sha256": "eb75b1d229038799cf784220915bb56d472fea99450cc4b923bda08d20d46d33",
+    "crop": {
+      "x": 0,
+      "y": 249,
+      "width": 540,
+      "height": 708
+    },
+    "display": "assets/catalog/purosis/display/03.svg"
+  },
+  {
+    "model": "glory",
+    "source": "assets/whatsapp-originals/WhatsApp Image 2026-10-16 at 18.28.00b.jpeg",
+    "sha256": "7ed74c9fe2c01fe53fc2a187a732cb9206679cd49f3adc9464a2d303a775ca0e",
+    "display": "assets/catalog/glory/display/01.jpg"
+  },
+  {
+    "model": "glory",
+    "source": "assets/whatsapp-originals/WhatsApp Image 2026-10-16 at 18.28.00c.jpeg",
+    "sha256": "5bf82343c172e14d586a81c98b2d01f28f1be701fb8e36930d944c88cd5132c6",
+    "display": "assets/catalog/glory/display/02.jpg"
+  },
+  {
+    "model": "glory",
+    "source": "assets/whatsapp-originals/WhatsApp Image 2026-10-16 at b.jpeg",
+    "sha256": "b61f64f3d9e7809d5eee638bd22b0262135bcc96badfdcf88a1c3e1ed41f74ae",
+    "display": "assets/catalog/glory/display/03.jpg"
+  },
+  {
+    "model": "emerald",
+    "source": "assets/whatsapp-originals/WhatsApp Image 2026-10-16 at 18.28.23e.jpeg",
+    "sha256": "1ca8760937924e15a2b8c31f6d8fcd4515f24cb6e1848468a66399a8523d4e47",
+    "display": "assets/catalog/emerald/display/01.jpg"
+  },
+  {
+    "model": "emerald",
+    "source": "assets/whatsapp-originals/WhatsApp Image 2026-10-16 at 18.28.23f.jpeg",
+    "sha256": "b1572ebbf67d74212d0dcc3dff09da01a9ca4bfd79de3a42f913d6086a1c8564",
+    "display": "assets/catalog/emerald/display/02.jpg"
+  },
+  {
+    "model": "jade",
+    "source": "assets/whatsapp-originals/WhatsApp Image 2026-10-16 at 18.28.45g.jpeg",
+    "sha256": "84edd296a94a87b7514b53148902b29bc5ff3441ce109400a35474814ba9472e",
+    "display": "assets/catalog/jade/display/01.jpg"
+  },
+  {
+    "model": "jade",
+    "source": "assets/whatsapp-originals/WhatsApp Image 2026-10-16 at 18.28.45h.jpeg",
+    "sha256": "054d6ccea4d5ccdec4609574e1c3a7df079221541b8a87e49b5852e1c26bdf54",
+    "display": "assets/catalog/jade/display/02.jpg"
+  },
+  {
+    "model": "jade",
+    "source": "assets/whatsapp-originals/WhatsApp Image 2026-10-16 at 18.28.46i.jpeg",
+    "sha256": "92679a3285fbe18d6f402a04f828ecf5b79fde7db1f7c16cb94a76c03cd8ee7a",
+    "display": "assets/catalog/jade/display/03.jpg"
+  },
+  {
+    "model": "jade",
+    "source": "assets/whatsapp-originals/WhatsApp Image 2026-10-16 at 18.28.46j.jpeg",
+    "sha256": "ab81719ccb9ac12e3cc94cf31a9ba9db7d8cfdee4765f14d619d235467b5b7f1",
+    "display": "assets/catalog/jade/display/04.jpg"
+  },
+  {
+    "model": "water-lilli",
+    "source": "assets/whatsapp-originals/WhatsApp Image 2026-10-16 at 18.29.02k.jpeg",
+    "sha256": "01b3cb91714f07dcf787a7c4f09d2b1da908b4326d0fe9fe953bf2baac79263e",
+    "display": "assets/catalog/water-lilli/display/01.jpg"
+  },
+  {
+    "model": "water-lilli",
+    "source": "assets/whatsapp-originals/WhatsApp Image 2026-10-16 at 18.29.02l.jpeg",
+    "sha256": "f80372d446a69267ac1996fe6b3613efdd827e1b3a2efed143e6573cf0201c82",
+    "display": "assets/catalog/water-lilli/display/02.jpg"
+  },
+  {
+    "model": "water-lilli",
+    "source": "assets/whatsapp-originals/WhatsApp Image 2026-10-16 at 18.29.03m.jpeg",
+    "sha256": "4b0dd3aab77dcdc53f1e67dd01f64184dfb342efd093e24c807d787580fa655e",
+    "display": "assets/catalog/water-lilli/display/03.jpg"
+  },
+  {
+    "model": "water-lilli",
+    "source": "assets/whatsapp-originals/WhatsApp Image 2026-10-16 at 18.29.03n.jpeg",
+    "sha256": "aee9ed25c39abf6761cf00ffe2c64de2e3e49785fe94078052fc85c42447b009",
+    "display": "assets/catalog/water-lilli/display/04.jpg"
+  },
+  {
+    "model": "water-lilli",
+    "source": "assets/whatsapp-originals/WhatsApp Image 2026-10-16 at 18.29.03o.jpeg",
+    "sha256": "3bbc284aeba5d28c817780761ab1cb1bcc0d1c9af4ad3e8550cf6975b7c70365",
+    "display": "assets/catalog/water-lilli/display/05.jpg"
+  },
+  {
+    "model": "pre-filter-housing",
+    "source": "assets/whatsapp-originals/WhatsApp Image 2026-10-16 at 18.29.25p.jpeg",
+    "sha256": "7d3a616b4a38e76c397126fd4b433c7535ec113b1e4186b10fb29cec6ae54443",
+    "display": "assets/catalog/pre-filter-housing/display/01.jpg"
+  },
+  {
+    "model": "spun-filter",
+    "source": "assets/whatsapp-originals/WhatsApp Image 2026-10-16 at 18.29.25q.jpeg",
+    "sha256": "21071cf88ee560a551c14fe0ec00c7f10eb31edb5ad60c051ff448c955c10b3c",
+    "display": "assets/catalog/spun-filter/display/01.jpg"
+  },
+  {
+    "model": "alica",
+    "source": "assets/whatsapp-originals/WhatsApp Image 2026-10-16 at 18.30.08r.jpeg",
+    "sha256": "a6eb8764659b36102e16e6032e9662f8c2db586d8df976a01a93b76ade45789e",
+    "display": "assets/catalog/alica/display/01.jpg"
+  },
+  {
+    "model": "lx-one-titanium",
+    "source": "assets/whatsapp-originals/WhatsApp Image 2026-10-16 at 18.30.36s.jpeg",
+    "sha256": "07a33635d5896082ad235bb6e4d3c108ea14d6c0c8fcc60975e9569ca3011f49",
+    "display": "assets/catalog/lx-one-titanium/display/01.jpg"
+  },
+  {
+    "model": "aqua-touch",
+    "source": "assets/whatsapp-originals/WhatsApp Image 2026-10-16 at 18.31.23t.jpeg",
+    "sha256": "c63bfed2b6b8010e071b98e1637fd25bcf773287e3692282265537af167183fc",
+    "display": "assets/catalog/aqua-touch/display/01.jpg"
+  },
+  {
+    "model": "purifier-taps",
+    "source": "assets/whatsapp-originals/WhatsApp Image 2026-10-16 at 18.34.59u.jpeg",
+    "sha256": "f6b373c0c01470bfe1159acb04415062b9917f147aec45ebca4a4a2d3fb50101",
+    "display": "assets/catalog/purifier-taps/display/01.jpg"
+  },
+  {
+    "model": "purifier-taps",
+    "source": "assets/whatsapp-originals/WhatsApp Image 2026-10-16 at 18.34.59v.jpeg",
+    "sha256": "8ac9840e92a01928b1d58b0901b08a15519f177c90b8f68cc813b123f9625889",
+    "display": "assets/catalog/purifier-taps/display/02.jpg"
+  },
+  {
+    "model": "purifier-taps",
+    "source": "assets/whatsapp-originals/WhatsApp Image 2026-10-16 at 18.34.59w.jpeg",
+    "sha256": "af1a632553ca0d30766610e28900e2a7978f5a6e63a93025a489776d53c410bd",
+    "display": "assets/catalog/purifier-taps/display/03.jpg"
+  },
+  {
+    "model": "purifier-taps",
+    "source": "assets/whatsapp-originals/WhatsApp Image 2026-10-16 at 18.35.00x.jpeg",
+    "sha256": "a026764d1107f28bd71ad0cc6fab798f8d79bf693a802a51853c5f141ffb7381",
+    "display": "assets/catalog/purifier-taps/display/04.jpg"
+  }
+]

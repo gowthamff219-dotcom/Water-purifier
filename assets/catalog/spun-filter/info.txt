@@ -1,0 +1,6 @@
+Model: Spun Filter
+Category: Filters
+Price: INR 100
+
+Source: product messages shared on 16 October 2026.
+Photo count: 1

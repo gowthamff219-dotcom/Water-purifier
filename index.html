@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AquaGuard - Premium Water Purification</title>
+    <title>AquaGuard - Water Purifiers & Store Enquiries</title>
+    <meta name="description" content="Browse water purifiers and accessories. Call for details, availability and installation, or visit our store in Poonamallee, Chennai.">
     
     <!-- Professional Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,7 +45,7 @@
 
     <!-- Sticky Contact -->
     <div class="sticky-contact">
-        <a href="https://wa.me/918939414842" target="_blank" class="contact-btn whatsapp-btn" title="WhatsApp"><i data-lucide="message-circle"></i></a>
+        <a href="https://wa.me/918939414842" target="_blank" rel="noopener noreferrer" class="contact-btn whatsapp-btn" title="WhatsApp"><i data-lucide="message-circle"></i></a>
         <a href="tel:+918939414842" class="contact-btn call-btn" title="Call Now"><i data-lucide="phone"></i></a>
     </div>
 
@@ -59,10 +60,10 @@
                 <div class="hero-bg-blob blob-2"></div>
                 <div class="hero-content animate-on-scroll">
                     <div class="badge-pill">
-                        <i data-lucide="shield-check" style="width:16px; height:16px;"></i> ISO Certified Quality
+                        <i data-lucide="droplet" style="width:16px; height:16px;"></i> Water Purifiers & Accessories
                     </div>
                     <h1>Pure Water for<br><span class="text-gradient">Healthy Living</span></h1>
-                    <p>Experience the next generation of water purification. Premium systems available exclusively at our Chennai store with lifetime expert support.</p>
+                    <p>Experience the next generation of water purification. Explore our purifier range, call for expert guidance, and visit our Poonamallee store.</p>
                     <div style="display:flex; gap: 1rem;">
                         <button class="btn btn-primary" onclick="navigateTo('products')">Explore Products <i data-lucide="arrow-right" style="width:18px;"></i></button>
                         <a href="tel:+918939414842" class="btn btn-secondary">Call Us Now</a>
@@ -86,12 +87,6 @@
                         <div class="service-card" style="text-align:center; align-items: center; cursor:pointer;">
                             <div class="service-icon-wrapper"><i data-lucide="filter"></i></div>
                             <h3 style="margin:0;">Filters</h3>
-                        </div>
-                    </div>
-                    <div class="animate-on-scroll stagger-3" onclick="setFilter('Stands')">
-                        <div class="service-card" style="text-align:center; align-items: center; cursor:pointer;">
-                            <div class="service-icon-wrapper"><i data-lucide="box"></i></div>
-                            <h3 style="margin:0;">Stands</h3>
                         </div>
                     </div>
                     <div class="animate-on-scroll stagger-4" onclick="setFilter('Taps')">
@@ -121,7 +116,7 @@
             <div class="container" style="padding-top: 4rem;">
                 <div class="section-header animate-on-scroll" style="margin-bottom: 3rem; text-align: left;">
                     <h2>Our Products</h2>
-                    <p style="margin: 0;">Advanced purification systems and high-quality accessories available in-store.</p>
+                    <p style="margin: 0;">Browse our water purifiers and accessories. Call for details, availability, and installation.</p>
                 </div>
 
                 <!-- Filters -->
@@ -132,7 +127,7 @@
                     </div>
                     <div class="filters">
                         <div class="filter-group">
-                            <label>Category</label>
+                            <label for="categoryFilter">Category</label>
                             <select id="categoryFilter" onchange="applyFilters()">
                                 <option value="">All Categories</option>
                                 <option value="Purifiers">Water Purifiers</option>
@@ -143,18 +138,20 @@
                             </select>
                         </div>
                         <div class="filter-group">
-                            <label>Max Price: ₹<span id="priceValue">50000</span></label>
-                            <input type="range" id="priceFilter" min="0" max="50000" step="500" value="50000" oninput="document.getElementById('priceValue').textContent=this.value; applyFilters();">
+                            <label for="priceFilter">Max Price: ₹<span id="priceValue">9500</span></label>
+                            <input type="range" id="priceFilter" min="0" max="9500" step="500" value="9500" oninput="document.getElementById('priceValue').textContent=this.value; applyFilters();">
                         </div>
                         <div class="filter-group autocomplete-wrapper">
-                            <label>Search Products</label>
+                            <label for="searchFilter">Search Products</label>
                             <input type="text" id="searchFilter" placeholder="Type to search..." oninput="handleSearch(this.value)">
-                            <div id="autocompleteList" class="autocomplete-list"></div>
+                            <div id="autocompleteList" class="autocomplete-list" hidden></div>
                         </div>
                     </div>
                     <div class="active-filters" id="activeFilters"></div>
                 </div>
 
+                <p class="catalog-help">Prices shown as “From” are starting prices. Please call to confirm details. Browse products online and visit us in store.</p>
+                <p id="catalogCount" class="catalog-count" role="status"></p>
                 <!-- Products Grid -->
                 <div class="grid" id="productsGrid" style="padding-bottom: 6rem;">
                     <!-- Populated by JS -->
@@ -249,12 +246,13 @@
                                 <h3 style="margin-bottom:1.5rem; display:flex; align-items:center; gap:12px;">
                                     <i data-lucide="map-pin" style="color:var(--primary);"></i> Sales & Service Center
                                 </h3>
-                                <p style="color:var(--text-light); margin-bottom:2rem; font-size:1.1rem; line-height:1.8;">Mangadu Main Road<br>Opposite Bus Stop<br>Chennai - 600122, Tamil Nadu</p>
+                                <p style="color:var(--text-light); margin-bottom:2rem; font-size:1.1rem; line-height:1.8;">M.R. AQUA SERVICE<br>18B, Anjaneyar Koil Street, MG Nagar<br>Poonamallee, Chennai, Tamil Nadu 600056</p>
                                 <div style="display:flex; flex-direction:column; gap:1rem;">
                                     <a href="tel:+918939414842" class="btn btn-secondary" style="justify-content: flex-start;">
                                         <i data-lucide="phone" style="width:18px;"></i> +91-8939414842
                                     </a>
-                                    <a href="https://wa.me/918939414842" target="_blank" class="btn btn-secondary" style="justify-content: flex-start; color:#10B981; border-color:#10B981;">
+                                    <a href="https://maps.app.goo.gl/SrXHkBFPTP9MQxqv8?g_st=aw" target="_blank" rel="noopener noreferrer" class="btn btn-primary"><i data-lucide="navigation"></i> Get Directions</a>
+                                    <a href="https://wa.me/918939414842" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="justify-content: flex-start; color:#10B981; border-color:#10B981;">
                                         <i data-lucide="message-circle" style="width:18px;"></i> WhatsApp Us
                                     </a>
                                 </div>
@@ -280,39 +278,21 @@
                         </div>
                     </div>
                 </div>
+                <section class="store-map-section" aria-labelledby="storeMapTitle">
+                    <h3 id="storeMapTitle">Find M.R. AQUA SERVICE</h3>
+                    <p>Visit us at our Poonamallee store. Open Google Maps for directions.</p>
+                    <div class="store-map"><iframe title="Google Maps — M.R. AQUA SERVICE in Poonamallee" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.7881582875307!2d80.0967079!3d13.0491521!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a528ba86aadc6b9%3A0x8828472144dd0518!2sM.R.AQUA%20SERVICE!5e0!3m2!1sen!2sin!4v1792160262244!5m2!1sen!2sin" width="1200" height="420" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                    <div class="map-actions"><a href="https://maps.app.goo.gl/SrXHkBFPTP9MQxqv8?g_st=aw" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Get Directions</a><a href="tel:+918939414842" class="btn btn-secondary">Call Us</a></div>
+                </section>
             </div>
         </div>
     </main>
 
-    <!-- Compare Floating Bar -->
-    <div id="compareBar">
-        <span id="compareCount" style="font-weight:600;">0 items selected</span>
-        <button class="btn" style="background:white; color:var(--text); padding: 8px 24px;" onclick="openCompareModal()">Compare Specs</button>
-        <button class="btn" style="background:transparent; color:white; border: 1px solid rgba(255,255,255,0.3); padding: 8px 24px;" onclick="clearCompare()">Clear</button>
-    </div>
-
-    <!-- Quick View Modal -->
-    <div id="quickViewModal" class="modal" onclick="if(event.target===this) closeModal('quickViewModal')">
-        <div class="modal-content" style="max-width: 800px;">
-            <button class="modal-close" onclick="closeModal('quickViewModal')"><i data-lucide="x"></i></button>
-            <div id="quickViewContent"></div>
-        </div>
-    </div>
-
-    <!-- Compare Modal -->
-    <div id="compareModal" class="modal" onclick="if(event.target===this) closeModal('compareModal')">
+    <!-- Accessible product details and photo gallery -->
+    <div id="quickViewModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="quickViewTitle" hidden onclick="if(event.target===this) closeModal()">
         <div class="modal-content" style="max-width: 1000px;">
-            <button class="modal-close" onclick="closeModal('compareModal')"><i data-lucide="x"></i></button>
-            <h2 style="margin-bottom: 2rem;">Product Comparison</h2>
-            <div style="overflow-x:auto;">
-                <table class="comparison-table" id="compareTable">
-                    <!-- Populated by JS -->
-                </table>
-            </div>
-            <div style="margin-top: 3rem; text-align: center; background: var(--bg); padding: 2rem; border-radius: 16px;">
-                <p style="color: var(--text-light); font-size: 15px; margin-bottom: 1.5rem;">Products can be purchased directly by visiting our store or calling us.</p>
-                <a href="tel:+918939414842" class="btn btn-primary" style="padding: 14px 40px;"><i data-lucide="phone"></i> Call to Inquire</a>
-            </div>
+            <button class="modal-close" aria-label="Close product details" onclick="closeModal()"><i data-lucide="x"></i></button>
+            <div id="quickViewContent"></div>
         </div>
     </div>
 
@@ -329,14 +309,14 @@
                     <li><a href="#" onclick="navigateTo('products'); return false;"><i data-lucide="chevron-right" style="width:16px;"></i> View Products</a></li>
                     <li><a href="#" onclick="navigateTo('services'); return false;"><i data-lucide="chevron-right" style="width:16px;"></i> Our Services</a></li>
                     <li><a href="tel:+918939414842"><i data-lucide="chevron-right" style="width:16px;"></i> Call for Installation</a></li>
-                    <li><a href="#" onclick="navigateTo('contact'); return false;"><i data-lucide="chevron-right" style="width:16px;"></i> Store Location</a></li>
+                    <li><a href="https://maps.app.goo.gl/SrXHkBFPTP9MQxqv8?g_st=aw" target="_blank" rel="noopener noreferrer"><i data-lucide="map-pin" style="width:16px;"></i> Visit Our Store — Poonamallee</a></li>
                 </ul>
             </div>
             <div class="footer-section">
                 <h3>Contact Info</h3>
                 <ul>
                     <li><a href="tel:+918939414842"><i data-lucide="phone" style="width:18px;"></i> +91-8939414842</a></li>
-                    <li><a href="https://wa.me/918939414842" target="_blank"><i data-lucide="message-circle" style="width:18px;"></i> WhatsApp Support</a></li>
+                    <li><a href="https://wa.me/918939414842" target="_blank" rel="noopener noreferrer"><i data-lucide="message-circle" style="width:18px;"></i> WhatsApp Support</a></li>
                     <li><a href="mailto:support@aquaguard.com"><i data-lucide="mail" style="width:18px;"></i> support@aquaguard.com</a></li>
                 </ul>
             </div>
@@ -347,6 +327,7 @@
     </footer>
 
     <!-- Scripts -->
+    <script src="js/products.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
